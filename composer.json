@@ -9,7 +9,6 @@
         "symfony/dotenv": "4.3.*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "4.3.*",
-        "symfony/requirements-checker": "^1.1",
         "symfony/yaml": "4.3.*"
     },
     "config": {
@@ -39,8 +38,7 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "requirements-checker": "script"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -57,5 +55,9 @@
             "allow-contrib": false,
             "require": "4.3.*"
         }
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1.11",
+        "symfony/web-server-bundle": "4.3.*"
     }
 }
