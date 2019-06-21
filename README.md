@@ -55,3 +55,32 @@ composer require maker --dev
 ```shell
 composer require orm
 ```
+
+Créer un fichier .env.local et ajouter une ligne pour la variable d'environemment `DATABASE_URL`
+
+Créer la base de données (vide) :
+
+```shell
+php bin/console doctrine:database:create
+```
+
+Pour la supprimer :
+
+```shell
+php bin/console doctrine:database:drop --force
+```
+
+## Création des Entités
+
+
+Créer une entité Doctrine avec Maker :
+
+```shell
+php bin/console make:entity EntityName
+```
+
+Exécuter le/les fichier(s) de migration :
+
+```shell
+php bin/console doctrine:migrations:migrate
+```
