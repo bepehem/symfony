@@ -50,6 +50,11 @@ class Article
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $picture;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -160,6 +165,18 @@ class Article
     public function preUpdate ()
     {
         $this->setUpdatedAt(new \DateTime());
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
+
+        return $this;
     }
 
 }
