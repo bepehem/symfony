@@ -1,12 +1,30 @@
 # Symfony
 
+Pour installer le projet :
+
+1. Créer le fichier .env.local
+2. Importer les dépendances PHP :
+    ```shell
+    composer install
+    ```
+3. Créer la base de données et insérer les données de test :
+    ```shell
+    php bin/console doctrine:database:drop --force
+    php bin/console doctrine:database:create
+    php bin/console doctrine:migrations:migrate
+    php bin/console doctrine:fixtures:load
+    ```
+4. Démarrer le serveur PHP (optionel) :
+    ```shell
+    php bin/console server:run
+
 ## Installation
 
 ```shell
 composer create-project symfony/skeleton symfony
 ```
 
-OU
+OU (plus complet)
 
 ```shell
 composer create-project symfony/website-skeleton symfony
@@ -56,7 +74,7 @@ composer require maker --dev
 composer require orm
 ```
 
-Créer un fichier .env.local et ajouter une ligne pour la variable d'environemment `DATABASE_URL`
+Créer un fichier .env.local et ajouter une ligne pour la variable d'environnement `DATABASE_URL`
 
 Créer la base de données (vide) :
 
