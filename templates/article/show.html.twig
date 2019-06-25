@@ -6,7 +6,20 @@
 
 
     <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+    <p>
+        Catégorie : <a href="{{ path('category_show', {'id': article.category.id}) }}">{{ article.category.label }}</a>
+    </p>
+    <hr>
+    <ul>
+        Balise(s) :
+    {% for tag in article.tags %}
 
+        <li>
+            <a href="{{ path('tag_show', {'id': tag.id}) }}">{{ tag.label }}</a>
+        </li>
 
-</div>
+    {% endfor %}
+    </ul>
+
 {% endblock %}

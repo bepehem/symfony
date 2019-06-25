@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ tag.label }}{% endblock %}
+
+{% block body %}
+
+    <h1> Balise : {{ tag.label }}</h1>
+    <ul>
+        Article(s) :
+        {% for article in tag.articles  %}
+            <li>
+                <a href="{{ path('article_show', {'id': article.id}) }}">{{ article.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
