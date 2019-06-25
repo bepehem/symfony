@@ -5,15 +5,14 @@
 {% block body %}
 
     <h1>{{ category.label }}</h1>
-    <p>
-        <ul>
-            Article(s) :
-            {% for article in category.articles %}
-                <li>
-                    {% include 'article/_thumbnail.html.twig' with { 'article': article } only %}
-                </li>
-            {% endfor %}
-        </ul>
-    </p>
+    <p>Article(s) :</p>
+    <ul>
+        {% for article in category.articles %}
+            <li>
+                {% include 'article/_thumbnail.html.twig' with {'article': article} only %}
+            </li>
+        {% endfor %}
+    </ul>
+
 
 {% endblock %}

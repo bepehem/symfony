@@ -1,24 +1,24 @@
 {% extends "base.html.twig" %}
 
+{% block sidebar %}
+    <article>
+        <h3>Catégories</h3>
+        {{ render(controller('App\\Controller\\DefaultController::navCategory')) }}
+    </article>
+    <article>
+        <h3>Tags</h3>
+        {{ render(controller('App\\Controller\\DefaultController::navTag')) }}
+    </article>
+{% endblock %}
+
 {% block body %}
 
     <h1>Page d'accueil</h1>
 
-<section>
-    {% for article in articles %}
-        <article>
-            <ul>
-                <li>
-
-                    <h2>
-                        {{ article.title }}
-                    </h2>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">Voir plus</a>
-                    <hr>
-                </li>
-            </ul>
-        </article>
-    {% endfor %}
-</section>
+    <section>
+        {% for article in articles %}
+            {% include 'article/_thumbnail.html.twig' with { 'article': article } only %}
+        {% endfor %}
+    </section>
 
 {% endblock %}

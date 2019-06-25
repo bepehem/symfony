@@ -2,19 +2,40 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Bienvenue !{% endblock %}</title>
+        {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
-    
-    <nav>
+
+    <nav class="nav">
         <ul>
             <li>
-                <a href="{{ path('homepage') }}">Accueil</a>
+                <a href="{{ path('homepage') }}"><img src="{{ asset('build/images/LOGO_DC.png') }}" height= 100px width= 150px alt="logoDC"></a>
             </li>
         </ul>
     </nav>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <main class="main-content">
+        <section>
+            {% block body %}{% endblock %}
+        </section>
+        <section>
+            <h2>Widgets</h2>
+            {% block sidebar %}
+                <?php
+            {% endblock %}
+        </section>
+    </main>
+        <footer>
+            <p>
+                Catégories :
+            </p>
+            {{ render(controller('App\\Controller\\DefaultController::navCategory')) }}
+
+        </footer>
+        {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </body>
 </html>

@@ -4,19 +4,36 @@ Pour installer le projet :
 
 1. Créer le fichier .env.local
 2. Importer les dépendances PHP :
+
     ```shell
     composer install
     ```
-3. Créer la base de données et insérer les données de test :
+    
+3. Importer dépendances JS/CSS :
+
+    ```shell
+    npm install
+    ```
+    
+4. Créer la base de données et insérer les données de test :
+    
     ```shell
     php bin/console doctrine:database:drop --force
     php bin/console doctrine:database:create
     php bin/console doctrine:migrations:migrate
     php bin/console doctrine:fixtures:load
     ```
-4. Démarrer le serveur PHP (optionel) :
+    
+5. Compiler les fichiers assets :
+    
+    ```shell
+    npm run watch
+    ```
+    
+6. Démarrer le serveur PHP :
     ```shell
     php bin/console server:run
+    ```
 
 ## Installation
 

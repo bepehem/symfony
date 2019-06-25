@@ -5,8 +5,10 @@
 {% block body %}
 
     <h1> Balise : {{ tag.label }}</h1>
-    <ul>
+    <p>
         Article(s) :
+    </p>
+    <ul>
         {% for article in tag.articles  %}
             <li>
                 <a href="{{ path('article_show', {'id': article.id}) }}">{{ article.title }}</a>

@@ -6,19 +6,21 @@
 
 
     <h1>{{ article.title }}</h1>
+    <img src="{{ asset('uploads/' ~ article.picture) }}" alt="art-picture">
     <p>{{ article.content }}</p>
+    <hr>
     <p>
         Catégorie : <a href="{{ path('category_show', {'id': article.category.id}) }}">{{ article.category.label }}</a>
     </p>
     <hr>
-    <ul>
+    <p>
         Balise(s) :
+    </p>
+    <ul>
     {% for tag in article.tags %}
-
         <li>
             <a href="{{ path('tag_show', {'id': tag.id}) }}">{{ tag.label }}</a>
         </li>
-
     {% endfor %}
     </ul>
 

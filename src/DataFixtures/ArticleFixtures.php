@@ -45,7 +45,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $article4 = new Article();
         $article4->setTitle("Bien apprendre le HTML");
         $article4->setPicture("html.jpg");
-        $article4->setContent("Des conseils techniques pour maîtriser parfaitement les rudiments du langage fondamental du web.");
+        $article4->setContent("Une série d'astuces pour maîtriser parfaitement les rudiments du langage au fondement du web.");
         $article4->setCategory($this->getReference("cat-devweb"));
         $article4->addTag($this->getReference("tag-HTML"));
 
@@ -55,7 +55,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $article5 = new Article();
         $article5->setTitle("La base de données pour les nuls");
         $article5->setPicture("bdd.jpg");
-        $article5->setContent("Créer sa base de données, ce n'est pas très sorcier à condtion d'employer les bonnes méthodes.");
+        $article5->setContent("Créer sa base de données, ce n'est pas très sorcier à condition d'employer les bonnes méthodes.");
         $article5->setCategory($this->getReference("cat-bdd"));
         $article5->addTag($this->getReference("tag-MySQL"));
         $article5->addTag($this->getReference("tag-MongoDB"));
