@@ -10,9 +10,13 @@
     <body>
 
     <nav class="nav">
+        <img src="{{ asset('build/images/LOGO_DC.png') }}" height= 100px width= 150px alt="logoDC">
         <ul>
             <li>
-                <a href="{{ path('homepage') }}"><img src="{{ asset('build/images/LOGO_DC.png') }}" height= 100px width= 150px alt="logoDC"></a>
+                <a href="{{ path('homepage') }}">Accueil</a>
+            </li>
+            <li>
+                <a href="{{ path('category_new') }}">Ajouter catégorie</a>
             </li>
         </ul>
     </nav>
@@ -23,7 +27,20 @@
         <section>
             <h2>Widgets</h2>
             {% block sidebar %}
+                <h1>Tirage au sort</h1>
                 <?php
+    $horaires = ["9h00", "9h25", "9h50", "10h15", "10h40", "11h05", "11h30", "11h55", "13h00", "13h25", "13h50", "14h15", "14h40", "15h05", "15h30", "15h55", "16h20", "16h45"];
+    $eleves = ["Anatolia", "Clarisse", "Marie", "Maïté", "Sylvain", "Didier", "Nicolas", "Pierre-Hugues", "Dimitri", "Erwan", "Yann", "Bertrand", "Sebastien", "Olivier", "Jérome"];
+	shuffle($eleves);
+?>
+                <ol>
+                    <?php foreach ($eleves as $key => $value) : ?>
+                    <li>
+                        <?= $horaires[$key]; ?> - <?= $value; ?>
+                    </li>
+                    <?php endforeach; ?>
+                </ol>
+                <button onclick='window.location = document.location.href'>Relancer</button>
             {% endblock %}
         </section>
     </main>
