@@ -21,6 +21,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $article1->addTag($this->getReference("tag-MySQL"));
 
         $manager->persist($article1);
+        $this->setReference("article-1", $article1);
 
         $article2 = new Article();
         $article2->setTitle("Créer un site web");
@@ -32,7 +33,9 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $article2->addTag($this->getReference("tag-PHP"));
         $article2->addTag($this->getReference("tag-MySQL"));
 
+
         $manager->persist($article2);
+        $this->setReference("article-2", $article2);
 
         $article3 = new Article();
         $article3->setTitle("Utiliser Photoshop");
@@ -41,6 +44,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $article3->setCategory($this->getReference("cat-design"));
 
         $manager->persist($article3);
+        $this->setReference("article-3", $article3);
 
         $article4 = new Article();
         $article4->setTitle("Bien apprendre le HTML");
@@ -49,8 +53,8 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $article4->setCategory($this->getReference("cat-devweb"));
         $article4->addTag($this->getReference("tag-HTML"));
 
-
         $manager->persist($article4);
+        $this->setReference("article-4", $article4);
 
         $article5 = new Article();
         $article5->setTitle("La base de données pour les nuls");
@@ -61,7 +65,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $article5->addTag($this->getReference("tag-MongoDB"));
 
         $manager->persist($article5);
-
+        $this->setReference("article-5", $article5);
 
         $manager->flush();
     }

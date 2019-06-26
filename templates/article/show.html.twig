@@ -9,9 +9,25 @@
     <img src="{{ asset('uploads/' ~ article.picture) }}" height="200px" width="300px" alt="art-picture">
     <p>{{ article.content }}</p>
     <hr>
+    <h2> Catégorie :</h2>
     <p>
-        Catégorie : <a href="{{ path('category_show', {'id': article.category.id}) }}">{{ article.category.label }}</a>
+        <a href="{{ path('category_show', {'id': article.category.id}) }}">{{ article.category.label }}</a>
     </p>
+    <hr>
+    <h2>
+        Commentaire(s) :
+    </h2>
+
+    {{ render(controller('App\\Controller\\CommentController::new', {'article': article} )) }}
+
+    <section>
+        {% for comment in comments %}
+            <article>
+                <em>{{ comment.createdAt|date('d-m-Y') }}</em>
+                <p>{{ comment.content }}</p>
+            </article>
+        {% endfor %}
+    </section>
     <hr>
     <p>
         Balise(s) :
