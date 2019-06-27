@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
  * @Route("/comment")
@@ -33,12 +34,19 @@ class CommentController extends AbstractController
     {
         $comment = new Comment();
         $comment->setArticle($article);
+        $comment->setUser($this->getUser());
 
         $actionUrl = $this->generateUrl('comment_new', ['id'=> $article->getId()]);
         $form = $this->createForm(CommentType::class, $comment, ['action' => $actionUrl]);
         $form->handleRequest($request);
 
+
+
         if ($form->isSubmitted() && $form->isValid()) {
+            // Vérifier si utilisateur est connecté
+            if (!$this->getUser()) {
+            throw $this-> createAccessDeniedException('Accès refusé.');
+}
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comment);
             $entityManager->flush();
