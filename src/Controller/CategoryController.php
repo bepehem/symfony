@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Form\CategoryType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,6 +26,7 @@ class CategoryController extends AbstractController
     }
     /**
      * @Route("/new", name="category_new")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request)
     {
