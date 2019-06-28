@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/article/{id}", name="article_show", requirements={"id=\d+"}, methods={"GET"})
+     * @Route("/article/{slug}", name="article_show", methods={"GET"})
      */
     public function show(Article $article)
     {
